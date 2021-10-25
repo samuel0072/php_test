@@ -1,9 +1,47 @@
 <html>
     <head>
-        <title>Github's API test</title>
+        <title>Github's API Test</title>
         <link href="public/css/styles.css" rel="stylesheet">
     </head>
     <body>
-        <span>Olá mundo.</span>
+        <!-- Cabeçalho -->
+        <header>
+            <a href="#">Github API Test</a>
+        </header>
+        
+        <div id = "main">
+            <!-- Barra de busca-->
+            <div id="search_bar">
+                <form method="GET" action="search.php" id="search_form">
+                    <input name="q" type="text" v-model="search_term"
+                    placeholder="Insira o nome do usuário que deseja buscar">
+                    <button type="submit"><img src="public/icons/icon_search.png" alt="botão com ícone de busca"></button>
+                </form>
+            </div>
+
+            <!-- Lista de usuários encontrados-->
+            <div id="list_usr" v-if="show_users">
+                <span>Usuários encontrados: {{ len_result }}</span>
+                <ul id="usr_ul">
+                    <li v-for=" user in found_users">
+                        <a @click="fetchUsrRepos(user)">{{user.name}}</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Repositórios do usuário selecionado-->
+            <div id = "repos_usr" v-if="show_repos">
+                <span>Repositórios do usuário: PLACEHOLDER</span>
+                <ul id="repos_ul">
+                    <li v-for=" repo in usr_repos">
+                        <span>{{repo.name}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+
+        <script src="https://unpkg.com/vue@next"></script>
+        <script src="public/js/index.js"></script>
     </body>
 </html>
