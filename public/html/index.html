@@ -24,7 +24,13 @@
                 <span>Usuários encontrados: {{ len_result }}</span>
                 <ul id="usr_ul">
                     <li v-for=" user in found_users">
-                        <a @click="fetchUsrRepos(user)">{{user.name}}</span>
+                        <div>
+                            <img :src="user.avatar_url" height="20" width="20" alt="foto de perfil do usuário">
+                        </div>
+                        <div>
+                            <a @click="fetchUsrRepos(user)">{{user.login}}</a></span>
+                        </div>
+                        
                     </li>
                 </ul>
             </div>

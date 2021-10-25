@@ -33,10 +33,13 @@ const app = Vue.createApp({
             xhr.open("GET", url);
 
             xhr.onload = function() {
-                self.found_users = JSON.parse(xhr.responseText);
+                console.log(xhr.responseText);
+                response = JSON.parse(xhr.responseText);
+                self.found_users = response.items;
                 self.show_users = true;
                 self.show_repos = false,
                 self.usr = null;
+                self.len_result = response.total_count;
             };
             xhr.setRequestHeader("Accept", "application/json");
 
@@ -51,6 +54,7 @@ const app = Vue.createApp({
             xhr.open("GET", url);
 
             xhr.onload = function() {
+                console.log(xhr.responseText);
                 self.usr_repos = JSON.parse(xhr.responseText);
                 self.show_users = false;
                 self.show_repos = true,
