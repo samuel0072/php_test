@@ -1,7 +1,7 @@
 <?php
 class HTMLRender {
 
-    private $html_file;
+    private $htmlFile;
 
     /**
      * param: $file_name
@@ -13,7 +13,7 @@ class HTMLRender {
         $file = fopen($file_name, 'r') or die("Impossível abrir o recurso.");
         $len = filesize($file_name);
 
-        $this->html_file = html_entity_decode(fread($file, $len));
+        $this->htmlFile = html_entity_decode(fread($file, $len));
         fclose($file);
     }
 
@@ -21,7 +21,7 @@ class HTMLRender {
      * Renderiza o html informado no construtor
      */
     function render() {
-        echo $this->html_file;
+        echo $this->htmlFile;
     }
 }
 

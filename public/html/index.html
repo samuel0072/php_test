@@ -6,7 +6,8 @@
     <body>
         <!-- Cabeçalho -->
         <header>
-            <a href="#">Github API Test</a>
+            <h1><a href="#">Github API Test</a></h1>
+            
         </header>
         
         <div id = "main">
@@ -28,21 +29,35 @@
                             <img :src="user.avatar_url" height="20" width="20" alt="foto de perfil do usuário">
                         </div>
                         <div>
-                            <a @click="fetchUsrRepos(user)">{{user.login}}</a></span>
+                            <a @click="fetchUsrInfos(user)">{{user.login}}</a></span>
                         </div>
                         
                     </li>
                 </ul>
             </div>
 
-            <!-- Repositórios do usuário selecionado-->
-            <div id = "repos_usr" v-if="show_repos">
-                <span>Repositórios do usuário: PLACEHOLDER</span>
-                <ul id="repos_ul">
-                    <li v-for=" repo in usr_repos">
-                        <span>{{repo.name}}</span>
-                    </li>
-                </ul>
+            <!-- Informações do usuário selecionado-->
+            <div id = "usr_info" v-if="show_info">
+                <section id="basic_info">
+                    <img :src="usr.avatar_url" alt="foto do perfil do usuário">
+                    <div id="main_info_usr">
+                        <h3>{{usr.name}}</h3>
+                        <h4>{{usr.login}}</h4>
+                        <span>{{usr.bio}}</span>
+                    </div>
+
+                    <div id="other_infos">
+                        <span> {{usr.followers}} seguidor(es)</span>
+                        <span> Seguindo {{usr.following}}</span>
+                    </div>
+                </section>
+                <section id="repos_info">
+                    <!--ul id="repos_ul">
+                        <li v-for=" repo in usr_repos">
+                            <span>{{repo.name}}</span>
+                        </li>
+                    </ul-->
+                </section>
             </div>
         </div>
         
