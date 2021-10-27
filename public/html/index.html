@@ -1,6 +1,9 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+"http://www.w3.org/TR/html4/strict.dtd">
 <html>
     <head>
         <title>Github's API Test</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="public/css/styles.css" rel="stylesheet">
     </head>
     <body>
@@ -15,18 +18,20 @@
             <div id="search_bar">
                 <form method="GET" action="search.php" id="search_form">
                     <input name="q" type="text" v-model="search_term"
-                    placeholder="Insira o nome do usuário que deseja buscar">
+                    placeholder="search by user's name">
                     <button type="submit"><img src="public/icons/icon_search.png" alt="botão com ícone de busca"></button>
                 </form>
             </div>
 
             <!-- Lista de usuários encontrados-->
             <div id="list_usr" v-if="show_users">
+               
                 <span>Usuários encontrados: {{ len_result }}</span>
                 <ul id="usr_ul">
                     <li v-for=" user in found_users">
                         <div>
-                            <img :src="user.avatar_url" height="20" width="20" alt="foto de perfil do usuário">
+                            <img :src="user.avatar_url" height="20" width="20" alt="foto de perfil do usuário"
+                            class ="usr_img">
                         </div>
                         <div>
                             <a @click="fetchUsrInfos(user)">{{user.login}}</a></span>
@@ -34,12 +39,18 @@
                         
                     </li>
                 </ul>
+                
+                <a @click="fetchUsers(page - 1)">Previous page</span>
+                <span>{{page}}</span>
+                <a @click="fetchUsers(page + 1)">Next page</span>
             </div>
 
             <!-- Informações do usuário selecionado-->
-            <div id = "usr_info" v-if="show_info">
-                <section id="basic_info">
-                    <img :src="usr.avatar_url" alt="foto do perfil do usuário">
+            <div id = "usr_info" v-if="show_info" class="user-info">
+                <span @click="back"><-</span>
+                
+                <div id="basic_info" width="50%">
+                    <img :src="usr.avatar_url" alt="foto do perfil do usuário" class="usr_img" width="260" height="260">
                     <div id="main_info_usr">
                         <h3>{{usr.name}}</h3>
                         <h4>{{usr.login}}</h4>
@@ -47,21 +58,28 @@
                     </div>
 
                     <div id="other_infos">
-                        <span> {{usr.followers}} seguidor(es)</span>
-                        <span> Seguindo {{usr.following}}</span>
+                        <span> {{usr.followers}} followers</span>
+                        <span> {{usr.following}} following</span>
                     </div>
-                </section>
-                <section id="repos_info">
-                    <!--ul id="repos_ul">
-                        <li v-for=" repo in usr_repos">
-                            <span>{{repo.name}}</span>
+                </div>
+
+                <div id="repos_info" width="50%">
+                    <h3>Repositories</h3>
+                    <ul id="repos_ul">
+                        <li v-for=" repo in repos">
+                            <a :href="repo.html_url" target="blank">{{repo.name}}</a>
+                            <ul>
+                                <li v-for = "topic in repo.topics">
+                                    <a :href="'https://github.com/topics/' + topic" >{{topic}}</a>
+                                </li>
+                            </ul>
+                            <span>{{repo.language}}</span>
+                            <span> last update at {{ formatDate(repo.updated_at) }}</span>
                         </li>
-                    </ul-->
-                </section>
+                    </ul>
+                </div>
             </div>
         </div>
-        
-
         <script src="https://unpkg.com/vue@next"></script>
         <script src="public/js/index.js"></script>
     </body>

@@ -2,3 +2,21 @@ body {
     background-color: #0d1117;
     color: #c9d1d9;
 }
+
+.user-info {
+    
+    display: grid;
+    justify-items: center;
+    justify-content: space-around;
+    gap: 1em;
+    grid-template-columns: auto auto auto;
+    align-content: center;
+}
+
+.usr_img {
+    border-radius: 50% !important;
+}
+.big {
+    width: 260;
+    height: 260;
+}
