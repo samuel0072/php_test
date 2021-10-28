@@ -15,18 +15,16 @@
             <!-- Cabeçalho -->
             <div class="app-header">
                 <header class="header-title">
-                    <h1><a href="#">Github API Test</a></h1>
+                    <h1><a href=".">Github API Test</a></h1>
                 </header>
                 <!-- Barra de busca-->
                 <div id="search_bar" class="search-bar">
                     <form method="GET" action="search.php" id="search_form">
-                        <fieldset>
-                            <input name="q" type="text" v-model="search_term"
-                            placeholder="search by user's name" class="search-input">
-                            <button type="submit" class="search-img">
-                                <img src="public/icons/icon_search.png" alt="botão com ícone de busca">
-                            </button>
-                        </fieldset>
+                        <input name="q" type="text" v-model="search_term"
+                        placeholder="search by user's name" class="search-input">
+                        <button type="submit" class="search-img">
+                            <img src="public/icons/icon_search.png" alt="botão com ícone de busca">
+                        </button>
                         
                     </form>
                 </div>

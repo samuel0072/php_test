@@ -2,7 +2,7 @@
     position: fixed;
     z-index: 10;
     width: 100%;
-    background-color: #21262d;
+    background-color: #161b22;
     margin-bottom: 10px;
     top:0px;
     
@@ -10,7 +10,10 @@
 .header-title{
     width:30%;
     display: inline-block;
+    vertical-align: middle;
+    
 }
+
 .search-bar {
     width: 70%;
     display: inline-block;
@@ -18,29 +21,36 @@
 .search-input {
     width: 70%;
     height: 33px;
-    margin-bottom: 0px;
-    padding: 0.3em 0.4em;
-    margin: 0.1em 0.2em;
+    padding: 0.5em;
+    vertical-align: middle;
+    border-radius: 0.30em;
+    border-color: #21262d;
+    border-width: 1px;
+    background-color: #0d1117;
 }
 .search-img {
-    width: 4%;
-    height: 33px;
-    margin-bottom: 0px;
-    padding: 0.3em 0.4em;
-    margin: 0.1em 0.2em;
+    padding: 0em;
+    width: 45px;
+    height: 100%;
+    vertical-align: middle;
+    border-radius: 0.30em;
+    border-color: #21262d;
+    border-width: 1px;
+    background-color: #0d1117;
+    border-top-left-radius: 0em;
+    border-bottom-left-radius: 0em;
 }
 .search-img > img {
     height: 100%;
     width: 100%;
 }
 
-fieldset {
-    font-size: 1em;
-    padding: 0.5em;
-    border:0px none black;
-}
-
 #main {
     margin-top: 100px;
     margin-left: -8px;
+}
+
+.header-title > h1 > a{
+    color: inherit;
+    
 }
