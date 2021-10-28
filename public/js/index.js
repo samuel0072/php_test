@@ -28,7 +28,7 @@ const app = Vue.createApp({
     methods: {
         fetchUsers: function(page = 1) {
 
-            if(page < 1) {
+            if(page < 1) {//a api do github só lida com número de página >= 1
                 page = 1;
             }
 
@@ -41,16 +41,19 @@ const app = Vue.createApp({
             xhr.open("GET", url);
 
             xhr.onload = function() {
-                
+                console.log(xhr.responseText);
                 response = JSON.parse(xhr.responseText);
-                console.log(response);
-                self.found_users = response.items;
-                self.show_users = true;
-                self.show_info = false;
-                self.show_repos = false;
-                self.usr = null;
-                self.len_result = response.total_count;
-                self.page=page;
+                if(response.status == 'success') {
+                    
+                    self.found_users = response.data.items;
+                    self.show_users = true;
+                    self.show_info = false;
+                    self.show_repos = false;
+                    self.usr = null;
+                    self.len_result = response.data.total_count;
+                    self.page=page;
+                }
+                
             };
             xhr.setRequestHeader("Accept", "application/json");
 
@@ -65,12 +68,14 @@ const app = Vue.createApp({
             xhr.open("GET", url);
 
             xhr.onload = function() {
-                self.usr = JSON.parse(xhr.responseText);
-                console.log(self.usr);
-                self.show_users = false;
-                self.show_info = true;
-                self.fetchUsrRepos(self.usr);
-
+                console.log(xhr.responseText);
+                response = JSON.parse(xhr.responseText);
+                if(response.status == 'success') {
+                    self.usr = response.data;
+                    self.show_users = false;
+                    self.show_info = true;
+                    self.fetchUsrRepos(self.usr);
+                }
             };
             xhr.setRequestHeader("Accept", "application/json");
 
@@ -85,11 +90,14 @@ const app = Vue.createApp({
             xhr.open("GET", url);
 
             xhr.onload = function() {
-                self.repos = JSON.parse(xhr.responseText);
-                console.log(self.repos);
-                self.show_users = false;
-                self.show_info = true;
-                self.show_repos = true;
+                response = JSON.parse(xhr.responseText);
+                if(response.status == 'success') {
+                    self.repos = response.data;
+                    console.log(self.repos);
+                    self.show_users = false;
+                    self.show_info = true;
+                    self.show_repos = true;
+                }
             };
             xhr.setRequestHeader("Accept", "application/json");
 
@@ -98,11 +106,6 @@ const app = Vue.createApp({
         formatDate: function(v) {
             return v.replace(/T|Z/g, " ");
         },
-        back: function(){
-            show_users = true;
-            show_info = false;
-            show_repos = false;
-        }
     },
 
 });
