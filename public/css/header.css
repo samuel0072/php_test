@@ -1,0 +1,46 @@
+.app-header {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    background-color: #21262d;
+    margin-bottom: 10px;
+    top:0px;
+    
+}
+.header-title{
+    width:30%;
+    display: inline-block;
+}
+.search-bar {
+    width: 70%;
+    display: inline-block;
+}
+.search-input {
+    width: 70%;
+    height: 33px;
+    margin-bottom: 0px;
+    padding: 0.3em 0.4em;
+    margin: 0.1em 0.2em;
+}
+.search-img {
+    width: 4%;
+    height: 33px;
+    margin-bottom: 0px;
+    padding: 0.3em 0.4em;
+    margin: 0.1em 0.2em;
+}
+.search-img > img {
+    height: 100%;
+    width: 100%;
+}
+
+fieldset {
+    font-size: 1em;
+    padding: 0.5em;
+    border:0px none black;
+}
+
+#main {
+    margin-top: 100px;
+    margin-left: -8px;
+}

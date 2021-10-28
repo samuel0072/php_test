@@ -6,24 +6,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="public/css/user_info.css" rel="stylesheet">
         <link href="public/css/user_list.css" rel="stylesheet">
+        <link href="public/css/header.css" rel="stylesheet">
     </head>
     <body>
-        <!-- Cabeçalho -->
-        <header>
-            <h1><a href="#">Github API Test</a></h1>
-            
-        </header>
         
-        <div id = "main">
-            <!-- Barra de busca-->
-            <div id="search_bar">
-                <form method="GET" action="search.php" id="search_form">
-                    <input name="q" type="text" v-model="search_term"
-                    placeholder="search by user's name">
-                    <button type="submit"><img src="public/icons/icon_search.png" alt="botão com ícone de busca"></button>
-                </form>
-            </div>
 
+        <div id = "main">
+            <!-- Cabeçalho -->
+            <div class="app-header">
+                <header class="header-title">
+                    <h1><a href="#">Github API Test</a></h1>
+                </header>
+                <!-- Barra de busca-->
+                <div id="search_bar" class="search-bar">
+                    <form method="GET" action="search.php" id="search_form">
+                        <fieldset>
+                            <input name="q" type="text" v-model="search_term"
+                            placeholder="search by user's name" class="search-input">
+                            <button type="submit" class="search-img">
+                                <img src="public/icons/icon_search.png" alt="botão com ícone de busca">
+                            </button>
+                        </fieldset>
+                        
+                    </form>
+                </div>
+            </div>
             <!-- Lista de usuários encontrados-->
             <div id="list_usr" v-if="show_users">
                
