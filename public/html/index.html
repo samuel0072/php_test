@@ -40,16 +40,15 @@
                     </li>
                 </ul>
                 
-                <a @click="fetchUsers(page - 1)">Previous page</span>
+                <button @click="fetchUsers(page - 1)">Previous page</button>
                 <span>{{page}}</span>
-                <a @click="fetchUsers(page + 1)">Next page</span>
+                <button @click="fetchUsers(page + 1)">Next page</button>
             </div>
 
             <!-- Informações do usuário selecionado-->
             <div id = "usr_info" v-if="show_info" class="user-info">
-                <span @click="back"><-</span>
                 
-                <div id="basic_info" width="50%">
+                <div id="basic_info" width="50%" class = "grid-item">
                     <img :src="usr.avatar_url" alt="foto do perfil do usuário" class="usr_img" width="260" height="260">
                     <div id="main_info_usr">
                         <h3>{{usr.name}}</h3>
@@ -63,17 +62,17 @@
                     </div>
                 </div>
 
-                <div id="repos_info" width="50%">
+                <div id="repos_info" width="50%" class = "grid-item">
                     <h3>Repositories</h3>
                     <ul id="repos_ul">
-                        <li v-for=" repo in repos">
-                            <a :href="repo.html_url" target="blank">{{repo.name}}</a>
+                        <li v-for=" repo in repos" class = "repo-detail">
+                            <a :href="repo.html_url" target="blank" class="repo-title">{{repo.name}}</a>
                             <ul>
-                                <li v-for = "topic in repo.topics">
-                                    <a :href="'https://github.com/topics/' + topic" >{{topic}}</a>
+                                <li v-for = "topic in repo.topics" class="repo-topic">
+                                    <a  :href="'https://github.com/topics/' + topic" >{{topic}}</a>
                                 </li>
                             </ul>
-                            <span>{{repo.language}}</span>
+                            <span class = "repo-language">{{repo.language}}</span>
                             <span> last update at {{ formatDate(repo.updated_at) }}</span>
                         </li>
                     </ul>
