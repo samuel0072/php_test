@@ -1,0 +1,116 @@
+
+/*
+* Estilo de classes
+*/
+.user-info {
+    
+    display: grid;
+    justify-items: stretch;
+    /*gap: 1em;*/
+    grid-template-columns: auto auto auto;
+    /*align-content: center;*/
+    margin-top: 2em;
+}
+
+.grid-item {
+    border-color: #21262d;
+    border-top-style: none;
+    border-bottom-style: none;
+    border-right-style: none;
+    border-width: 1px;
+    padding: 1em;
+} 
+
+.usr_img {
+    border-radius: 50% !important;
+}
+.repo-detail {
+    border-color: #21262d;
+    border-top-style: none;
+    border-bottom-style: solid;
+    border-right-style: none;
+    border-left-style: none;
+    border-width: 1px;
+    padding: 5px;
+    padding-bottom: 20px;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    list-style-type: none;
+}
+.repo-title {
+    font-size: 20px;
+    color: #58a6ff;
+    background-color: transparent;
+}
+
+.repo-topic {
+    font-size: 12px;
+    background-color: rgba(56, 139, 253, 0.15);
+    display: inline-block;
+    border: 1px solid rgba(0, 0, 0 ,0);
+    border-radius: 2em;
+    
+    white-space: nowrap;
+    margin: 0 0.125em 0.333em 0;
+    padding: 0 7px;
+    padding-right: 10px;
+    line-height: 22px;
+}
+.repo-topic a{
+    color: #58a6ff;
+}
+
+.repo-header {
+    padding: 8px 16px;
+    font-size: 25px;
+    line-height: 30px;
+    color: #c9d1d9;
+    text-align:left;
+    white-space: nowrap;
+    background-color: transparent;
+    border-color: #21262d;
+    border-top-style: none;
+    border-bottom-style: solid;
+    border-right-style: none;
+    border-left-style: none;
+    border-width: 1px;
+
+}
+
+.repo-icon {
+    display: inline-block;
+    overflow: visible !important;
+    vertical-align: text-bottom;
+    fill: currentColor;
+    margin-right: 4px;
+    color: inherit;
+}
+
+.repo-other-infos {
+    margin-top: 8px !important;
+    font-size: 12px !important;
+    color: #8b949e !important;
+}
+
+/*
+* Estilo de elementos
+*/
+body {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+}
+a {
+    text-decoration: none;
+}
+ul {
+    padding-left: 0;
+}
+
+/*
+* Eventos e animações
+*/
+
+.repo-title:hover  {
+    text-decoration: underline;
+}
