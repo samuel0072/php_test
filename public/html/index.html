@@ -46,9 +46,9 @@
                     </li>
                 </ul>
                 
-                <button @click="fetchUsers(page - 1)">Previous page</button>
-                <span>{{page}}</span>
-                <button @click="fetchUsers(page + 1)">Next page</button>
+                <a @click="fetchUsers(page - 1)" class="user-pagination">Previous page</a>
+                <span class="user-pagination">{{page}}</span>
+                <a @click="fetchUsers(page + 1)" class="user-pagination">Next page</a>
             </div>
 
             <!-- Informações do usuário selecionado-->
